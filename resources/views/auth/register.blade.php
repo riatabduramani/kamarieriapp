@@ -392,11 +392,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                           <label for="web" class="col-md-4 control-label">Website</label>
                           <div class="col-md-6">
                                 <input id="web" type="text" class="form-control" name="web" value="{{ old('web') }}" autofocus>
                             </div>
+                             @if ($errors->has('web'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('web') }}</strong>
+                                    </span>
+                                @endif
                         </div>
 
                          <div class="form-group{{ $errors->has('tables') ? ' has-error' : '' }}">

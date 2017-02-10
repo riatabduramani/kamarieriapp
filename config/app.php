@@ -165,6 +165,7 @@ return [
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class,
 
         /*
          * Package Service Providers...

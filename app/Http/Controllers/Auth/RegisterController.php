@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Business;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -60,12 +61,38 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
+    
+    
     protected function create(array $data)
     {
+        /*
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        */
+
+        $user = User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => bcrypt($data['password']),
+        ]);
+
+        $user->business()->save(new Business ([
+                'name' => $data['businessname'],
+                'address' => $data['address'],
+                'country' => $data['country'],
+                'zip' => $data['zip'],
+                'city' => $data['city'],
+                'web' => $data['web'],
+                'phone' => $data['phone'],
+                'nr_tables' => $data['tables'],                
+            ]));
+        
+        $user->attachRole('2');
+
+        return $user;
     }
+    
 }
