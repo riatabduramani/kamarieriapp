@@ -27,7 +27,7 @@
                                         <td>{{ $item->name }}</td>
                                         
                                         <td>
-                                             @foreach ( $item->ingredients as $ingredient)
+                                            @foreach ( $item->ingredients as $ingredient)
                                                 <label class="label label-warning">{{ $ingredient->name }}</label>
                                             @endforeach
 

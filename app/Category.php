@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Scopes\UserdataScope;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -32,4 +34,10 @@ class Category extends Model
         return $this->hasMany('App\Product');
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new UserdataScope);
+    }
 }

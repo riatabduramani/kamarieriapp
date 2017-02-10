@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Scopes\UserdataScope;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,6 +36,13 @@ class Product extends Model
     public function ingredients()
     {
         return $this->belongsToMany('App\Ingredient','product_ingredient');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(new UserdataScope);
     }
 	
 }

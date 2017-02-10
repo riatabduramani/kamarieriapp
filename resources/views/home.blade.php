@@ -6,9 +6,15 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
+                
 
                 <div class="panel-body">
-                    You are logged in!
+                    <p>You are logged in!</p>
+
+                    @if (!Entrust::hasRole('admin') && !Entrust::hasRole('client'))
+                        <p class="alert alert-danger">Please activate your account!</p>
+                    @endif
+
                     @role('admin')
                     
                         <p>This is visible to users with the admin role. </p>
@@ -18,6 +24,7 @@
                     @role('client')
                         <p>This is visible to users with the client role. </p>
                     @endrole
+                    
                 </div>
             </div>
         </div>

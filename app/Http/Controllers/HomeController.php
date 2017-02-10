@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use Session;
 
 use Illuminate\Http\Request;
 
@@ -24,12 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->hasRole('admin')) {
-           return redirect('/admin'); 
-        } elseif (Auth::user()->hasRole('client')) {
-            return redirect('/client'); 
-        }
-        //return view('home');
+       
+        return view('home');
     }
 
   

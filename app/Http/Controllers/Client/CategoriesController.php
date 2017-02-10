@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\Category;
 use Auth;
-
+use Gate;
 use Illuminate\Http\Request;
 use Session;
 
@@ -75,13 +75,15 @@ class CategoriesController extends Controller
      */
     public function show($id)
     {
-        try {
+        
         $category = Category::findOrFail($id);
 
-        return view('client.categories.show', compact('category'));
-        } catch(ModelNotFoundException $e) {
-            return redirect()->back();
-        }
+
+
+        $this->authorize('show-category', $category);
+
+         return view('client.categories.show', compact('category'));
+  
     }
 
     /**
@@ -112,6 +114,8 @@ class CategoriesController extends Controller
      */
     public function update($id, Request $request)
     {
+        
+        
         try {
         $requestData = $request->all();
         
@@ -124,6 +128,8 @@ class CategoriesController extends Controller
         } catch(ModelNotFoundException $e) {
             return redirect()->back();
         }
+        
+
     }
 
     /**

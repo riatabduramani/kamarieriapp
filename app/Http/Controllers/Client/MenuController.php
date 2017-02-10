@@ -28,8 +28,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-            $user_id = Auth::user()->id;
-            $categories = Category::where('user_id', $user_id)->get();
+            $categories = Category::get();
+
             return view('client.menu.index', compact('categories'));    
     }
 

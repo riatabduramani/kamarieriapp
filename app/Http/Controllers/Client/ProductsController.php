@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use Auth;
 use User;
+use Gate;
 use App\Product;
 use App\Category;
 use App\Ingredient;
@@ -28,14 +29,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        try{
-        $user_id = Auth::user()->id;
-        $products = Product::where('user_id', $user_id)->paginate(25);
+
+       
+        $products = Product::paginate(25);
+        //$ingredients = Ingredient::all();
+
+        //return ($products);
         return view('client.products.index', compact('products'));
-        
-        } catch(ModelNotFoundException $e) {
-            return redirect()->back();
-        }
     }
 
     /**
@@ -96,13 +96,12 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        try {
+
         $product = Product::findOrFail($id);
+        
+        $this->authorize('show-product', $product);
 
         return view('client.products.show', compact('product'));
-        } catch(ModelNotFoundException $e) {
-            return redirect()->back();
-        }
     }
 
     /**
@@ -114,17 +113,14 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        try {
-        $user_id = Auth::user()->id;
+        $user_id = auth()->user()->id;
         $product = Product::findOrFail($id);
-
         $category = Category::where('user_id', $user_id)->pluck('name','id');
-        $ingredients = Ingredient::pluck('name', 'id');
+        $ingredients = Ingredient::where('user_id', $user_id)->pluck('name', 'id');
+        
+        $this->authorize('show-product', $product);
 
         return view('client.products.edit', compact('product','category','ingredients'));
-        } catch(ModelNotFoundException $e) {
-            return redirect()->back();
-        }
     }
 
     /**
@@ -174,7 +170,8 @@ class ProductsController extends Controller
 
         return redirect('client/products');
         } catch(ModelNotFoundException $e) {
-            return redirect()->back();
+            //return redirect()->back();
+            return abort(404);
         }
     }
 

@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Auth;
 use DB;
-
+use Gate;
 use App\Ingredient;
 use Illuminate\Http\Request;
 use Session;
@@ -68,6 +68,8 @@ class IngredientsController extends Controller
 
         Session::flash('flash_message', 'Ingredient added!');
 
+        $this->authorize('show-ingredient', $ingredient);
+
         return redirect('client/ingredients');
     }
 
@@ -80,15 +82,12 @@ class IngredientsController extends Controller
      */
     public function show($id)
     {
-        try {
-            $user_id = Auth::user()->id;
-            $ingredient = Ingredient::where('user_id', $user_id)->findOrFail($id);
 
-            return view('client.ingredients.show', compact('ingredient'));
+        $ingredient = Ingredient::findOrFail($id);
+        
+        $this->authorize('show-ingredient', $ingredient);
 
-            } catch(ModelNotFoundException $e) {
-            return redirect()->back();
-        }
+        return view('client.ingredients.show', compact('ingredient'));
     }
 
     /**
@@ -100,16 +99,14 @@ class IngredientsController extends Controller
      */
     public function edit($id)
     {
-        try {
-
+      
             $user_id = Auth::user()->id;
             $ingredient = Ingredient::where('user_id', $user_id)->findOrFail($id);
 
-            return view('client.ingredients.edit', compact('ingredient'));
-            } catch(ModelNotFoundException $e) {
+            $this->authorize('show-ingredient', $ingredient);
             
-            return redirect()->back();
-        }
+            return view('client.ingredients.edit', compact('ingredient'));
+            
     }
 
     /**
