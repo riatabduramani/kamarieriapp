@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get ('/github', 'PdfController@github');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

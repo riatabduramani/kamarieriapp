@@ -165,7 +165,8 @@ return [
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Dingo\Api\Provider\LaravelServiceProvider::class,
+        Barryvdh\Snappy\ServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -233,6 +234,9 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+
 
 
     ],

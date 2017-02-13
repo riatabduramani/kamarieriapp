@@ -95,6 +95,7 @@
                 <div class="visible-print text-center">
                     {!! QrCode::size(100)->generate(Request::url()); !!}
                     <p>Scan me to contact.</p>
+                  
                 </div>
             </div>
         </div>

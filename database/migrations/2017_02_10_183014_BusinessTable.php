@@ -18,13 +18,13 @@ class BusinessTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('country');
-            $table->string('zip');
+            $table->string('zip')->nullable();
             $table->string('city');
             $table->string('phone');
-            $table->string('web');
-            $table->string('image');
+            $table->string('web')->nullable();
+            $table->string('image')->nullable();
             $table->string('nr_tables');
-            $table->string('currency');
+            $table->string('currency')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

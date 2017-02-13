@@ -15,6 +15,12 @@
 
                     @role('client')
                         <p>This is visible to users with the client role. </p>
+
+                        @for($x = 1; $x <= Auth::user()->business->nr_tables; $x++ )
+
+                        {!! QrCode::size(200)->generate($x) !!}
+                        
+                        @endfor                
                     @endrole
                 </div>
             </div>

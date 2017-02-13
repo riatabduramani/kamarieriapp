@@ -12,6 +12,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Session;
 
+
 class CategoriesController extends Controller
 {
     /**
@@ -77,8 +78,6 @@ class CategoriesController extends Controller
     {
         
         $category = Category::findOrFail($id);
-
-
 
         $this->authorize('show-category', $category);
 
@@ -147,4 +146,5 @@ class CategoriesController extends Controller
 
         return redirect('client/menu');
     }
+
 }
