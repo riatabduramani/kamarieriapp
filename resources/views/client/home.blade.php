@@ -3,24 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in User!
-                    @role('admin')
-                        <p>This is visible to users with the admin role. </p>
-                    @endrole
-
-                    @role('client')
-                        <p>This is visible to users with the client role. </p>
-
-                        @for($x = 1; $x <= Auth::user()->business->nr_tables; $x++ )
-
-                        {!! QrCode::size(200)->generate($x) !!}
-                        
-                        @endfor                
+                 @role('client')
+                    <h1> Welcome back, <b>{{ Auth::user()->business->name }}</b> </h1>
+                   
                     @endrole
                 </div>
             </div>

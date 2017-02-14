@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get ('/github', 'PdfController@github');
+
 
 Auth::routes();
 
@@ -32,6 +32,7 @@ Route::group(['prefix' => 'client', 'middleware' => ['role:client']], function()
      Route::get('/', function () {
 	    return view('client.home');
 		});
+    Route::get ('/github', 'PdfController@github');
 
     Route::resource('/menu', 'Client\\MenuController');
 	Route::resource('/categories', 'Client\\CategoriesController');
