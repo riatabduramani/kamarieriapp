@@ -21,7 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-
 Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
      Route::get('/', function () {
 	    return view('admin.home');
@@ -30,7 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
 Route::group(['prefix' => 'client', 'middleware' => ['role:client']], function() {
      Route::get('/', function () {
-	    return view('client.home');
+	    return view('home');
 		});
     Route::get ('/generateqrcodes', 'PdfController@github');
 

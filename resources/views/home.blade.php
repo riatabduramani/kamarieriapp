@@ -3,35 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-                
+                <div class="panel-heading">Dashboard
+                </div>
 
                 <div class="panel-body">
-                    <p>You are logged in!</p>
-
-                    @if (!Entrust::hasRole('admin') && !Entrust::hasRole('client'))
+                 @if (!Entrust::hasRole('admin') && !Entrust::hasRole('client'))
                         <p class="alert alert-danger">Please activate your account!</p>
-                    @endif
-
-                    @role('admin')
-                    
-                        <p>This is visible to users with the admin role. </p>
-
+                 @endif
+                 @role('client')
+                    <h1> Welcome, <b>{{ Auth::user()->business->name }}</b> </h1>
+                    <a href="/client/generateqrcodes" class="btn  btn-success"><span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span> Generate QRCodes</a>
                     @endrole
-
-                    @role('client')
-                        <p>This is visible to users with the client role. </p>
-                        
-                        @for($x = 1; $x <= Auth::user()->business->nr_tables; $x++ )
-
-                        {!! QrCode::size(200)->generate($x) !!}
-                        
-                        @endfor
-
-                    @endrole
-                    
                 </div>
             </div>
         </div>
