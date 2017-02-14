@@ -35,7 +35,7 @@
             <li {{{ (Request::is('client/dashboard') ? 'class=active' : '') }}} ><a href="/client/dashboard">Dashboard <span class="sr-only">(current)</span></a></li>
             <li {{{ (Request::is('client/menu*') ? 'class=active' : '') }}}><a href="/client/menu">Menu</a></li>
             <li><a href="#">History</a></li>
-            <li><a href="#">My Profile</a></li>
+             <li><a href="#">Generate QRCodes</a></li>
           </ul>
         @endrole
 
