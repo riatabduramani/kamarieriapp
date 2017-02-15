@@ -34,4 +34,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Business');
     }
+
+    public function category()
+    {
+        return $this->hasOne('App\Category');
+    }
 }

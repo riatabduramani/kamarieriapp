@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use App\Scopes\UserdataScope;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -33,12 +32,5 @@ class Business extends Model
     {
         return $this->belongsTo('App\User');
     }
-
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope(new UserdataScope);
-    }
+    
 }

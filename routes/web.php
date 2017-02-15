@@ -15,27 +15,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
-     Route::get('/', function () {
-	    return view('admin.home');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], function() {
+  
+    Route::get('/', function () {
+		return view('admin.home');
 		});
 });
 
-Route::group(['prefix' => 'client', 'middleware' => ['role:client']], function() {
-     Route::get('/', function () {
-	    return view('home');
-		});
-    Route::get ('/generateqrcodes', 'PdfController@github');
 
-    Route::resource('/menu', 'Client\\MenuController');
-	Route::resource('/categories', 'Client\\CategoriesController');
-	Route::resource('/products', 'Client\\ProductsController');
-	Route::resource('/ingredients', 'Client\\IngredientsController');
-});
+	Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], function() {
+		
+	    Route::get('/', function () {
+		    return view('home');
+			});
+
+	    Route::get ('/generateqrcodes', 'PdfController@github');
+
+	    Route::resource('/menu', 'Client\\MenuController');
+		Route::resource('/categories', 'Client\\CategoriesController');
+		Route::resource('/products', 'Client\\ProductsController');
+		Route::resource('/ingredients', 'Client\\IngredientsController');
+	});
 

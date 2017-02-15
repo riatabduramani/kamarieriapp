@@ -31,6 +31,7 @@ class LoginController extends Controller
 /*
         protected function redirectTo()
         {
+            
            
         }
 
@@ -45,4 +46,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
 }
