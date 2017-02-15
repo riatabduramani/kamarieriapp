@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1;
 use App\Business;
-use App\Category;
-use App\User;
 use DB;
-use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
-class BusinessController extends Controller
+class RestfulController extends Controller
 {
 
     public function show($id)
