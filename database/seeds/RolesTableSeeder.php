@@ -11,22 +11,31 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('roles')->insert(
-         	[
-	            'name' => 'admin',
-	            'display_name' => 'Admin',
-	            'description' => 'Admin',
-	            'created_at' => date('Y-m-d H:i:s'),
-	            'updated_at' => date('Y-m-d H:i:s'),
-        	]);
 
-         DB::table('roles')->insert(
-         	[
-	            'name' => 'client',
-	            'display_name' => 'Client',
-	            'description' => 'Client',
-	            'created_at' => date('Y-m-d H:i:s'),
-	            'updated_at' => date('Y-m-d H:i:s'),
-        	]);
+         DB::table('roles')->delete();
+         
+         DB::table('roles')->insert(array(
+             array(
+                'name' => 'super-admin',
+                'display_name' => 'Super Admin',
+                'description' => 'Super Admin',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ),
+             array(
+                'name' => 'admin',
+                'display_name' => 'Admin',
+                'description' => 'Admin',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ),
+             array(
+                'name' => 'client',
+                'display_name' => 'Client',
+                'description' => 'Client',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+                ),
+          ));
     }
 }

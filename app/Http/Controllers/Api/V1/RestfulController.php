@@ -32,12 +32,18 @@ class RestfulController extends Controller
 
     public function ingredient($id) {
 
-           return DB::select("SELECT ingredients.id, ingredients.name, ingredients.price 
+      $ingredient = DB::select("SELECT ingredients.id, ingredients.name, ingredients.price 
            						FROM ingredients, product_ingredient, products 
 								WHERE product_ingredient.product_id = $id 
 								AND ingredients.id = product_ingredient.ingredient_id
 								AND products.id = product_ingredient.product_id
 								");
+        if($ingredient) {
+            return $ingredient;
+        } else {
+            return abort(404);
+        }
+
     }
 
 }

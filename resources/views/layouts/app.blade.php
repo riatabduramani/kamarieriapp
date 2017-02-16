@@ -48,7 +48,7 @@
                         <li {{{ (Request::is('/client') ? 'class=active' : '') }}} ><a href="/client">Dashboard <span class="sr-only">(current)</span></a></li>
                         <li {{{ (Request::is('client/menu*') ? 'class=active' : '') }}}><a href="/client/menu">Menu</a></li>
                         <li><a href="#">History</a></li>
-                        <li><a href="#">My Profile</a></li>
+                        <li {{{ (Request::is('client/profile') ? 'class=active' : '') }}}><a href="/client/profile">My Profile</a></li>
                       </ul>
                     @endrole
 
@@ -76,7 +76,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

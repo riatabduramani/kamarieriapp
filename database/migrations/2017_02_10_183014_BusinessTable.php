@@ -16,17 +16,19 @@ class BusinessTable extends Migration
          Schema::create('business', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
             $table->string('address');
-            $table->string('country');
-            $table->string('zip')->nullable();
+            $table->string('zip');
             $table->string('city');
             $table->string('phone');
             $table->string('web')->nullable();
             $table->string('image')->nullable();
-            $table->string('nr_tables');
+            $table->string('nr_tables')->nullable();
             $table->string('currency')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

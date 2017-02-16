@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Business;
+use App\Country;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -82,15 +83,15 @@ class RegisterController extends Controller
         $user->business()->save(new Business ([
                 'name' => $data['businessname'],
                 'address' => $data['address'],
-                'country' => $data['country'],
+                'country_id' => $data['country'],
                 'zip' => $data['zip'],
                 'city' => $data['city'],
                 'web' => $data['web'],
                 'phone' => $data['phone'],
-                'nr_tables' => $data['tables'],                
+                'nr_tables' => $data['tables'],
             ]));
         
-        $user->attachRole('2');
+        $user->attachRole('3');
 
         return $user;
     }

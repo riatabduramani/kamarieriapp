@@ -5,10 +5,21 @@
         {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
+<div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
+    {!! Form::label('description', 'Description', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::textarea('description', null, ['class' => 'form-control', 'rows'=>'3']) !!}
+        {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
 <div class="form-group {{ $errors->has('price') ? 'has-error' : ''}}">
     {!! Form::label('price', 'Price', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
+    <div class="input-group">
+     <div class="input-group-addon">$</div>
         {!! Form::number('price', null, ['class' => 'form-control']) !!}
+    <div class="input-group-addon">.00</div>
+    </div>
         {!! $errors->first('price', '<p class="help-block">:message</p>') !!}
     </div>
 </div>

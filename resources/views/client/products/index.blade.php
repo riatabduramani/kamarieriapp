@@ -24,7 +24,12 @@
                                 <tbody>
                                 @foreach($products as $item)
                                     <tr>
-                                        <td>{{ $item->name }}</td>
+                                        <td>
+                                        {{ $item->name }}<br />
+                                        @if($item)
+                                            <small> {{ $item->description }}</small>
+                                        @endif
+                                        </td>
                                         
                                         <td>
                                             @foreach ( $item->ingredients as $ingredient)

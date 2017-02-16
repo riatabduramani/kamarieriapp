@@ -41,5 +41,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 		Route::resource('/categories', 'Client\\CategoriesController');
 		Route::resource('/products', 'Client\\ProductsController');
 		Route::resource('/ingredients', 'Client\\IngredientsController');
+		Route::resource('/profile', 'Client\\ProfileController');
+		Route::resource('/business', 'Client\\BusinessController');	
+
 	});
 

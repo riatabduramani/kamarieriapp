@@ -70,6 +70,7 @@ class ProductsController extends Controller
 
         $products = new Product;
         $products -> name = $request->name;
+        $products -> description = $request->description;
         $products -> price = $request->price;
         $products -> category_id = $request->category_id;
         $products -> user_id = Auth::user()->id;

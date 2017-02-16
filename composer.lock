@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a53e3aff13cc772ab0855839cc5387f0",
-    "content-hash": "fe14d1a987a0fb3f50db8fcfff33c97a",
+    "hash": "c14bb53431f22a25d9fd0ac306a44921",
+    "content-hash": "4afa12ab55a27c4b573d20d297b28974",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -51,16 +51,16 @@
         },
         {
             "name": "barryvdh/laravel-snappy",
-            "version": "v0.3.2",
+            "version": "v0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-snappy.git",
-                "reference": "864470e81952f8e568c93754d9d0d2c05145f773"
+                "reference": "dea728426bd867652c2f3a307a9cbea3f1ed7dff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-snappy/zipball/864470e81952f8e568c93754d9d0d2c05145f773",
-                "reference": "864470e81952f8e568c93754d9d0d2c05145f773",
+                "url": "https://api.github.com/repos/barryvdh/laravel-snappy/zipball/dea728426bd867652c2f3a307a9cbea3f1ed7dff",
+                "reference": "dea728426bd867652c2f3a307a9cbea3f1ed7dff",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
                 "wkhtmltoimage",
                 "wkhtmltopdf"
             ],
-            "time": "2017-01-20 06:21:34"
+            "time": "2017-02-09 23:18:54"
         },
         {
             "name": "dingo/api",
@@ -790,16 +790,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.11",
+            "version": "v5.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9cee8db07cfac13a3a49d17388c9ced4c52e17ac"
+                "reference": "707f32d32dce58232f7a860e0a1d62caf6f9dbfc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9cee8db07cfac13a3a49d17388c9ced4c52e17ac",
-                "reference": "9cee8db07cfac13a3a49d17388c9ced4c52e17ac",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/707f32d32dce58232f7a860e0a1d62caf6f9dbfc",
+                "reference": "707f32d32dce58232f7a860e0a1d62caf6f9dbfc",
                 "shasum": ""
             },
             "require": {
@@ -915,7 +915,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-02-10 19:40:54"
+            "time": "2017-02-15 14:31:32"
         },
         {
             "name": "laravel/tinker",

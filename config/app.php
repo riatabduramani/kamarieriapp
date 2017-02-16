@@ -168,7 +168,6 @@ return [
         Barryvdh\Snappy\ServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
 
-
         /*
          * Package Service Providers...
          */
@@ -237,8 +236,6 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
-
-
 
     ],
 

@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Business extends Model
+class Country extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'business';
+    protected $table = 'countries';
 
     /**
     * The database primary key value.
@@ -25,17 +25,12 @@ class Business extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'address', 'country', 'zip', 'city', 'web', 'phone','nr_tables', 'user_id'];
+
+    protected $fillable = ['code', 'name'];
 
 
-	public function user()
+    public function business()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMany('App\Business');
     }
-
-    public function countries()
-    {
-        return $this->hasMany('App\Country');
-    }
-    
 }
