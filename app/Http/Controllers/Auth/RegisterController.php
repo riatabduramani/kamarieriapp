@@ -83,7 +83,7 @@ class RegisterController extends Controller
         $user->business()->save(new Business ([
                 'name' => $data['businessname'],
                 'address' => $data['address'],
-                'country_id' => $data['country'],
+                'country_id' => $data['country_id'],
                 'zip' => $data['zip'],
                 'city' => $data['city'],
                 'web' => $data['web'],

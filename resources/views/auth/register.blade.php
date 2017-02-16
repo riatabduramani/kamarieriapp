@@ -92,15 +92,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
-                          <label for="country" class="col-md-4 control-label">Country</label>
+                        <div class="form-group{{ $errors->has('country_id') ? ' has-error' : '' }}">
+                          <label for="country_id" class="col-md-4 control-label">Country</label>
                           <div class="col-md-6">
                               
-                               {!! Form::select('country', App\Country::pluck('name', 'id'), null, ['class'=> 'form-control']) !!}
+                               {!! Form::select('country_id', App\Country::pluck('name', 'id'), null, ['class'=> 'form-control','id'=>'country_id']) !!}
 
-                                @if ($errors->has('country'))
+                                @if ($errors->has('country_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('country') }}</strong>
+                                        <strong>{{ $errors->first('country_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
