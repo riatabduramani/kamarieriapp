@@ -10,6 +10,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
+                @if (session('confirmation-success'))
+                    <div class="alert alert-success">
+                        {{ session('confirmation-success') }}
+                    </div>
+                @endif
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name & Surname</label>
 

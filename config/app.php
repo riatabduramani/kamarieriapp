@@ -167,6 +167,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Snappy\ServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
+
 
         /*
          * Package Service Providers...

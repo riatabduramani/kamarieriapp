@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::get('user/activation/{token}', 'Auth\AuthController@activateUser')->name('user.activate');
 Route::get('/home', 'HomeController@index');
 
 
@@ -42,7 +42,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 		Route::resource('/products', 'Client\\ProductsController');
 		Route::resource('/ingredients', 'Client\\IngredientsController');
 		Route::resource('/profile', 'Client\\ProfileController');
-		Route::resource('/business', 'Client\\BusinessController');	
-
+		Route::resource('/business', 'Client\\BusinessController');
+		
 	});
 

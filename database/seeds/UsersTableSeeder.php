@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
 	            'name' => 'Riat Abduramani',
 	            'email' => 'riat.abduramani@gmail.com',
 	            'password' => bcrypt('forever'),
+                'confirmed' => 1,
 	            'created_at' => date('Y-m-d H:i:s'),
 	            'updated_at' => date('Y-m-d H:i:s'),
         	]
