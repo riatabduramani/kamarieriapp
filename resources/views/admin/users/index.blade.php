@@ -19,8 +19,8 @@
 					</div>
 				@endif
 
-				<table class="table table-bordered">
-					<tr>
+				<table class="table table-striped table-hover">
+					<thead>
 						<th>#</th>
 						<th>Name</th>
 						<th>Email</th>
@@ -29,7 +29,7 @@
 						<th>Roles</th>
 						<th>Registered</th>
 						<th width="280px">Action</th>
-					</tr>
+					</thead>
 				@foreach ($data as $key => $user)
 				<tr>
 					<td>{{ ++$i }}</td>
