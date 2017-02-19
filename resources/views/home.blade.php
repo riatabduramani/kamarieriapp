@@ -9,9 +9,9 @@
                 </div>
 
                 <div class="panel-body">
-                 @if (!Entrust::hasRole('admin') && !Entrust::hasRole('client'))
-                        <p class="alert alert-danger">Please activate your account!</p>
-                 @endif
+                @role('super-admin')
+                    <h1>Welcome Admin</h1>
+                @endrole
                  @role('client')
 
                     <h1> Welcome, <b>{{ Auth::user()->business->name }}</b> </h1>

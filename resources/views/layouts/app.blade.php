@@ -52,10 +52,11 @@
                       </ul>
                     @endrole
 
-                    @role('admin')
+                    @role('super-admin')
                       <ul class="nav navbar-nav">            
-                        <li {{{ (Request::is('users*') ? 'class=active' : '') }}} ><a href="/users">Users <span class="sr-only">(current)</span></a></li>
-                        <li {{{ (Request::is('roles*') ? 'class=active' : '') }}}><a href="/roles">Roles</a></li>
+                        <li {{{ (Request::is('/admin/users*') ? 'class=active' : '') }}} ><a href="/admin/users">Users <span class="sr-only">(current)</span></a></li>
+                        <li {{{ (Request::is('/admin/roles*') ? 'class=active' : '') }}}><a href="/admin/roles">Roles</a></li>
+                        <li {{{ (Request::is('/admin/permissions*') ? 'class=active' : '') }}}><a href="/admin/permissions">Permissions</a></li>
                       </ul>
                     @endrole
 

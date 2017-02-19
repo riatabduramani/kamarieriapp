@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-use Auth;
-use Session;
+
 use App\Http\Controllers\Controller;
 //use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 
 class LoginController extends Controller
@@ -30,14 +31,14 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/home';
 
-/*
+       /*
         protected function redirectTo()
         {
             
            
         }
 
-    */
+       */
     
     /**
      * Create a new controller instance.
@@ -48,5 +49,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    
+    protected function credentials(Request $request)
+    {
+
+        $c = $request->only($this->username(), 'password');
+        return array_merge($c, ['is_active' => 1]);
+    }
+
 
 }
