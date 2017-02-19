@@ -62,6 +62,20 @@
                             </div>
                         </div>
 
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>E-mail Confirmed:</strong>
+                                {!! Form::select('confirmed', array('1'=>'Yes', '0'=>'Not confirmed'),null, array('class' => 'form-control')) !!}
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Status:</strong>
+                                {!! Form::select('is_active', array('1'=>'Active', '0'=>'Disabled'),null, array('class' => 'form-control')) !!}
+                            </div>
+                        </div>
+
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -75,3 +89,4 @@
     </div>
 </div>
 @endsection
+

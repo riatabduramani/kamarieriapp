@@ -21,12 +21,13 @@
 
 				<table class="table table-bordered">
 					<tr>
-						<th>No</th>
+						<th>#</th>
 						<th>Name</th>
 						<th>Email</th>
 						<th>Confirmed</th>
 						<th>Status</th>
 						<th>Roles</th>
+						<th>Registered</th>
 						<th width="280px">Action</th>
 					</tr>
 				@foreach ($data as $key => $user)
@@ -55,10 +56,23 @@
 						@endif
 					</td>
 					<td>
-						<a class="btn btn-info btn-xs" href="{{ route('users.show',$user->id) }}">Show</a>
-						<a class="btn btn-primary btn-xs" href="{{ route('users.edit',$user->id) }}">Edit</a>
-						{!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-			            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+						{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y (i:H:s)') }}
+					</td>
+					<td>
+						<a class="btn btn-warning btn-xs" href="{{ route('users.show',$user->id) }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+						<a class="btn btn-primary btn-xs" href="{{ route('users.edit',$user->id) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+		             	{!! Form::open([
+                            'method'=>'DELETE',
+                            'route' => ['users.destroy', $user->id],
+                            'style' => 'display:inline'
+                        ]) !!}
+                        {!! Form::button('<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete User" />', array(
+                                'type' => 'submit',
+                                'class' => 'btn btn-danger btn-xs',
+                                'title' => 'Delete User',
+                                'onclick'=>'return confirm("Confirm delete?")'
+                        )) !!}
+
 			        	{!! Form::close() !!}
 					</td>
 				</tr>
