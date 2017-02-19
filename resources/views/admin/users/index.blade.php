@@ -56,7 +56,7 @@
 						@endif
 					</td>
 					<td>
-						{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y (i:H:s)') }}
+						{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}
 					</td>
 					<td>
 						<a class="btn btn-warning btn-xs" href="{{ route('users.show',$user->id) }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
