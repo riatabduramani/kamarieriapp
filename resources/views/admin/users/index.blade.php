@@ -18,7 +18,7 @@
 						<p>{{ $message }}</p>
 					</div>
 				@endif
-
+				<div class="table-responsive">
 				<table class="table table-striped table-hover">
 					<thead>
 						<th>#</th>
@@ -78,7 +78,7 @@
 				</tr>
 				@endforeach
 				</table>
-
+				</div>
 				{!! $data->render() !!}
                 </div>
             </div>

@@ -35,7 +35,7 @@ class Business extends Model
 
     public function countries()
     {
-        return $this->hasMany('App\Country');
+        return $this->belongsTo('App\Country');
     }
     
 }

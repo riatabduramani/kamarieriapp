@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
+use App\Business;
+use App\Country;
 use DB;
 use Hash;
 
@@ -72,7 +74,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin.users.show',compact('user'));
+        $countryid = $user->business->country_id;
+        $country = Country::where('id', '=', $countryid)->get();
+        
+        //return $country;
+        return view('admin.users.show',compact('user','country'));
     }
 
     /**
