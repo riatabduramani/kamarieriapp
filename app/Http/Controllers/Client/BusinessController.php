@@ -34,7 +34,7 @@ class BusinessController extends Controller
 
 	        $business->save();
 
-          return redirect('client/profile')->with('statusprofileupdate', 'Business updated!');
+          return redirect('client/profile')->with('success', 'Business updated!');
     	
     }
 }

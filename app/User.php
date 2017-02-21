@@ -5,12 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-
+use App\Traits\HasModelTrait;
 
 class User extends Authenticatable
 {
     use EntrustUserTrait;
     use Notifiable;
+    use HasModelTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -44,5 +45,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
+
+    
 
 }

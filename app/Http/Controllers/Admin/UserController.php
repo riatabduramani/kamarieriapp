@@ -10,6 +10,9 @@ use App\Business;
 use App\Country;
 use DB;
 use Hash;
+use Alert;
+use Redirect;
+use Searchy;
 
 class UserController extends Controller
 {
@@ -21,20 +24,14 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {   
-
-        
-        
         $data = User::orderBy('id','DESC')->paginate(25);
         
         //$data = Role::where('name', 'client')->first()->users()->paginate(25);
 
-        
-        return view('admin.users.index',compact('data', 'isOnline'))
+        return view('admin.users.index',compact('data'))
           ->with('i', ($request->input('page', 1) - 1) * 5);
         
         //return $roles = Role::pluck('display_name','id');
-
-        
     }
 
     /**
@@ -129,23 +126,30 @@ class UserController extends Controller
             'is_active' => 'required'
         ]);
 
-        $input = $request->all();
-        if(!empty($input['password'])){ 
-            $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = array_except($input,array('password'));    
-        }
+        try {
+              $input = $request->all();
+                if(!empty($input['password'])){ 
+                    $input['password'] = Hash::make($input['password']);
+                }else{
+                    $input = array_except($input,array('password'));    
+                }
 
-        $user = User::find($id);
-        $user->update($input);
-        DB::table('role_user')->where('user_id',$id)->delete();
-        
-        foreach ($request->input('roles') as $key => $value) {
-            $user->attachRole($value);
-        }
+                $user = User::find($id);
+                $user->update($input);
+                DB::table('role_user')->where('user_id',$id)->delete();
+                
+                foreach ($request->input('roles') as $key => $value) {
+                    $user->attachRole($value);
+                }
 
-        return redirect('admin/users/')
-                        ->with('success','User updated successfully');
+                return redirect('admin/users/')
+                                ->with('success','User updated successfully');
+            
+        } catch (Exception $e) {
+            return redirect('admin/users/')
+                                ->with('error','Error while updating user!');
+        }
+      
     }
 
     /**
@@ -159,5 +163,11 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect('admin/users/')
                         ->with('success','User deleted successfully');
+    }
+
+
+
+    public function searchUsers() {
+
     }
 }

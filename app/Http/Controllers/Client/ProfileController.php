@@ -12,6 +12,7 @@ use App\Business;
 use App\Country;
 use Illuminate\Http\Request;
 use Session;
+use Alert;
 
 class ProfileController extends Controller
 {
@@ -49,7 +50,7 @@ class ProfileController extends Controller
                 ])->save();
             }
 
-            return redirect('client/profile')->with('statusprofileupdate', 'Profile updated!');
+            return redirect('client/profile')->with('success', 'Profile updated!');
 
     }
 

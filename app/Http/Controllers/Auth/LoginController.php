@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Alert;
 
 class LoginController extends Controller
 {
@@ -53,7 +53,7 @@ class LoginController extends Controller
     
     protected function credentials(Request $request)
     {
-
+        Alert::success('Welcome back!');
         $c = $request->only($this->username(), 'password');
         return array_merge($c, ['is_active' => 1]);
     }

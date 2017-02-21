@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use Session;
-
+use Alert;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+        //Alert::success('Title', 'Message');
         return view('home');
     }
 
