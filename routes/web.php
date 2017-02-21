@@ -44,7 +44,7 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], fu
 	
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['role:super-admin']], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:super-admin']], function() {
 	Route::resource('/users','Admin\\UserController');
 	Route::resource('/roles','Admin\\RoleController');
 });

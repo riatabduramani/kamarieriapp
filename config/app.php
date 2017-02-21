@@ -169,7 +169,6 @@ return [
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
 
-
         /*
          * Package Service Providers...
          */

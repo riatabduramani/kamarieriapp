@@ -21,6 +21,7 @@
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
         	<div class="col-xs-12 col-sm-12 col-md-12">
+
 		            <div class="form-group">
 		                <strong>Name:</strong>
 		                {{ $user->name }}
@@ -68,7 +69,7 @@
       </div>
     </div>
   </div>
-
+  @if(!empty($user->business->id))
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
@@ -148,6 +149,7 @@
     </div>
   </div>
 
+	@endif
 </div>
 
         </div>

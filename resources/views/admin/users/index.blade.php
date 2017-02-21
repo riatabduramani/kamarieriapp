@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                	Users Management
+                	Client Management
                 	 <div class="pull-right">
 	            		<a class="btn btn-success btn-xs" href="{{ route('users.create') }}"> Create New User</a>
 			        </div>
@@ -19,6 +19,7 @@
 					</div>
 				@endif
 				<div class="table-responsive">
+
 				<table class="table table-striped table-hover">
 					<thead>
 						<th>#</th>
@@ -35,7 +36,7 @@
 					<td>{{ ++$i }}</td>
 					<td>{{ $user->name }}</td>
 					<td>{{ $user->email }}</td>
-					<td>
+					<td style="text-align: center">
 						@if($user->confirmed == 1) 
 							<label class="label label-success" aria-hidden="true"><span class="glyphicon glyphicon-ok"></span></label>
 						@else 
@@ -43,7 +44,8 @@
 						@endif
 
 					</td>
-					<td> @if($user->is_active == 1) 
+					<td> 	
+					@if($user->is_active == 1) 
 							<span class="label label-success" aria-hidden="true">Active</span>
 						@else 
 							<span class="label label-danger" aria-hidden="true">Disabled</span>
@@ -58,8 +60,12 @@
 					<td>
 						{{ Carbon\Carbon::parse($user->created_at)->diffForHumans() }}
 					</td>
-					<td>
-						<a class="btn btn-warning btn-xs" href="{{ route('users.show',$user->id) }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+					<td> @if(!empty($user->business->id))
+							<a class="btn btn-warning btn-xs" href="{{ route('users.show',$user->id) }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+						@else
+							<a class="btn btn-warning btn-xs disabled" href="{{ route('users.show',$user->id) }}"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+						@endif
+
 						<a class="btn btn-primary btn-xs" href="{{ route('users.edit',$user->id) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
 		             	{!! Form::open([
                             'method'=>'DELETE',

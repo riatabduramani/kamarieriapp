@@ -20,11 +20,21 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
+
+        
         
         $data = User::orderBy('id','DESC')->paginate(25);
-        return view('admin.users.index',compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        
+        //$data = Role::where('name', 'client')->first()->users()->paginate(25);
+
+        
+        return view('admin.users.index',compact('data', 'isOnline'))
+          ->with('i', ($request->input('page', 1) - 1) * 5);
+        
+        //return $roles = Role::pluck('display_name','id');
+
+        
     }
 
     /**
@@ -74,11 +84,16 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+
+        if(!empty($user->business->id)) {
+
         $countryid = $user->business->country_id;
         $country = Country::where('id', '=', $countryid)->get();
         
-        //return $country;
-        return view('admin.users.show',compact('user','country'));
+        return view('admin.users.show',compact('user', 'country'));
+        } else {
+            return view('admin.users.show',compact('user'));
+        }
     }
 
     /**
