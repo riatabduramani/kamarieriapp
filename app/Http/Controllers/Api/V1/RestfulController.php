@@ -5,7 +5,9 @@ use App\Business;
 use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use File;
+use View;
+use Response;
 
 class RestfulController extends Controller
 {
@@ -47,8 +49,14 @@ class RestfulController extends Controller
     }
 
     public function receiveOrders(Request $request) {
-        $input = $request->all();
-        return $input;
+        $data = json_encode($request->all());
+
+         //$data = json_encode(['Example 1','Example 2','Example 3',]);
+        $fileName = time() . '_datafile.json';
+      $upload = File::put(public_path('upload/json/'.$fileName),$data);
+      return $upload;
+        
+        //return $input;
     }
 
 }
