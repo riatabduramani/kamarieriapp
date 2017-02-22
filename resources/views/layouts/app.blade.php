@@ -102,26 +102,5 @@
     <script src="/js/app.js"></script> 
     <script src="/js/sweetalert.min.js"></script>
 
-<script>
-    $("#delete").on("click", function (event) {
-        event.preventDefault();
-        swal({
-            title: "Are you sure?",
-            text: "You will not be able to recover this user!", 
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Yes, delete it!",
-            closeOnConfirm: false
-        },
-        function () {
-            $("#myform").submit();
-        });
-    });
-</script> 
-
-
-    @include('sweet::alert')
-
 </body>
 </html>

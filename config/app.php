@@ -168,8 +168,6 @@ return [
         Barryvdh\Snappy\ServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
-        Yajra\Datatables\DatatablesServiceProvider::class,
-        Yajra\Datatables\ButtonsServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
 

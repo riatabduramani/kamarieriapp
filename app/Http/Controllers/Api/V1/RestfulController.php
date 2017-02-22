@@ -46,4 +46,9 @@ class RestfulController extends Controller
 
     }
 
+    public function receiveOrders() {
+        
+        return Response::json(Input::all());
+    }
+
 }

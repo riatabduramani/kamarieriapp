@@ -7,7 +7,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard
                 </div>
-
                 <div class="panel-body">
                 @role('super-admin')
                     <h1>Welcome Admin</h1>

@@ -16,6 +16,7 @@
                     @role('client')
                         <p>This is visible to users with the client role. </p>
                     @endrole
+
                 </div>
             </div>
         </div>

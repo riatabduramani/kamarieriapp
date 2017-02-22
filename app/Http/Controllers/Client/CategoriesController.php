@@ -11,6 +11,7 @@ use Auth;
 use Gate;
 use Illuminate\Http\Request;
 use Session;
+use Alert;
 
 
 class CategoriesController extends Controller
@@ -62,9 +63,7 @@ class CategoriesController extends Controller
         
         //Category::create($category);
 
-        Session::flash('flash_message', 'Category added!');
-
-        return redirect('/client/menu');
+        return redirect('/client/menu')->with('success','Category created successfully!');
     }
 
     /**
@@ -121,9 +120,7 @@ class CategoriesController extends Controller
         $category = Category::findOrFail($id);
         $category->update($requestData);
 
-        Session::flash('flash_message', 'Category updated!');
-
-        return redirect('client/menu');
+        return redirect('client/menu')->with('success','Category updated successfully!');
         } catch(ModelNotFoundException $e) {
             return redirect()->back();
         }

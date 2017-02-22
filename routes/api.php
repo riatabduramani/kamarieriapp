@@ -37,5 +37,7 @@ $api->version('v1', function ($api) {
 	    /* http://api.myapp.dev/ingredient/{id} */
 	    $api->get('ingredients/{id}', 'App\Http\Controllers\Api\V1\RestfulController@ingredient');
 
+	    $api->post('/receiveorders', 'App\Http\Controllers\Api\V1\RestfulController@receiveOrders');
+
 });
 

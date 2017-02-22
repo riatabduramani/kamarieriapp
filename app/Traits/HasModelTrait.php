@@ -23,13 +23,13 @@ trait HasModelTrait
     {
         switch ($record) {
             case $record->confirmed == 1:
-                return '<label class="label label-success" aria-hidden="true"><span class="glyphicon glyphicon-ok"></span></label>';
+                return '<label class="label label-success" aria-hidden="true">Confirmed</label>';
                 break;
             case $record->confirmed == 0:
-                return '<label class="label label-danger" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></label>';
+                return '<label class="label label-warning" aria-hidden="true">Pending</label>';
                 break;
             default:
-                return '<label class="label label-danger" aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></label>';
+                return '<label class="label label-warning" aria-hidden="true">Pending</label>';
         }
     }
 

@@ -12,7 +12,6 @@ use DB;
 use Hash;
 use Alert;
 use Redirect;
-use Searchy;
 
 class UserController extends Controller
 {
@@ -29,9 +28,7 @@ class UserController extends Controller
         //$data = Role::where('name', 'client')->first()->users()->paginate(25);
 
         return view('admin.users.index',compact('data'))
-          ->with('i', ($request->input('page', 1) - 1) * 5);
-        
-        //return $roles = Role::pluck('display_name','id');
+        ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -165,9 +162,4 @@ class UserController extends Controller
                         ->with('success','User deleted successfully');
     }
 
-
-
-    public function searchUsers() {
-
-    }
 }
