@@ -46,9 +46,9 @@ class RestfulController extends Controller
 
     }
 
-    public function receiveOrders() {
-        
-        return Response::json(Input::all());
+    public function receiveOrders(Request $request) {
+        $input = $request->all();
+        return $input;
     }
 
 }
