@@ -18,7 +18,7 @@ class ProfileController extends Controller
 {
     public function index() {
 
-    	$user_id = Auth::user()->id;
+        $user_id = Auth::user()->id;
     	$user = User::findOrFail($user_id);
 
         $countryList = Country::pluck('name', 'id')->all();

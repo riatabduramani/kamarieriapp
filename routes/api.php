@@ -27,7 +27,7 @@ $api->version('v1', function ($api) {
 	    $api->get('business/{id}', 'App\Http\Controllers\Api\V1\RestfulController@show');
 
 	    /* Menu ->get menu using user-id*/
-	    $api->get('menu/{id}', 'App\Http\Controllers\Api\V1\RestfulController@category');
+	    $api->get('menu/{id}', 'App\Http\Controllers\Api\V1\RestfulController@menu');
 
 	    /* Product ->get product using category-id*/
 	    /* http://api.myapp.dev/products/{id} */
