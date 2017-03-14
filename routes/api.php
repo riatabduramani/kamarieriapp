@@ -39,5 +39,9 @@ $api->version('v1', function ($api) {
 
 	    $api->post('/receiveorders', 'App\Http\Controllers\Api\V1\RestfulController@receiveOrders');
 
+	    $api->post('/requestbill', 'App\Http\Controllers\Api\V1\RestfulController@getBill');
+	    
+	    $api->post('/callwaiter', 'App\Http\Controllers\Api\V1\RestfulController@callWaiter');
+
 });
 

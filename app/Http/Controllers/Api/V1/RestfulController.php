@@ -78,13 +78,23 @@ class RestfulController extends Controller
 
     public function receiveOrders(Request $request) {
         $data = json_encode($request->all());
-
+        return $data;
          /*
         $fileName = time() . '_datafile.json';
         File::put(public_path('upload/json/'.$fileName),$data);
       return $data;
       */
         
+    }
+
+    public function getBill(Request $request) {
+        $data = json_encode($request->all());
+        return $data;
+    }
+
+    public function callWaiter(Request $request) {
+        $data = json_encode($request->all());
+        return $data;
     }
 
 }
