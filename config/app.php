@@ -170,7 +170,6 @@ return [
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
-
         /*
          * Package Service Providers...
          */

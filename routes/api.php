@@ -43,5 +43,7 @@ $api->version('v1', function ($api) {
 	    
 	    $api->post('/callwaiter', 'App\Http\Controllers\Api\V1\RestfulController@callWaiter');
 
+	    $api->get('/unseen/{id}', 'App\Http\Controllers\Api\V1\RestfulController@unseen');
+
 });
 

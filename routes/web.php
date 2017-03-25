@@ -41,6 +41,7 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], fu
 	Route::resource('/ingredients', 'Client\\IngredientsController');
 	Route::resource('/profile', 'Client\\ProfileController');
 	Route::resource('/business', 'Client\\BusinessController');
+	Route::resource('/history', 'Client\\OrderHistoryController');
 	
 });
 

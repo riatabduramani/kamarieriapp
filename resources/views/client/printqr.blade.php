@@ -26,7 +26,7 @@
 
         @role('client')
             <div class="row">
-
+                
                 @for($x = 1; $x <= Auth::user()->business->nr_tables; $x++ )
                     <div style="float: left;">
                         #{{ $x }}<br />

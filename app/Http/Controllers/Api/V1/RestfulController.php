@@ -1,14 +1,20 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1;
-use App\Business;
-use App\Category;
-use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use File;
 use View;
 use Response;
+use DB;
+
+use App\Business;
+use App\Category;
+use App\Orders;
+use App\OrdersHistory;
+use App\Ingredient;
+use App\Product;
+
 
 class RestfulController extends Controller
 {
@@ -62,7 +68,7 @@ class RestfulController extends Controller
 
     public function ingredient($id) {
 
-      $ingredient = DB::select("SELECT ingredients.id, ingredients.name, ingredients.price 
+        $ingredient = DB::select("SELECT ingredients.id, ingredients.name, ingredients.price 
            						FROM ingredients, product_ingredient, products 
 								WHERE product_ingredient.product_id = $id 
 								AND ingredients.id = product_ingredient.ingredient_id
@@ -77,14 +83,44 @@ class RestfulController extends Controller
     }
 
     public function receiveOrders(Request $request) {
-        $data = json_encode($request->all());
-        return $data;
-         /*
-        $fileName = time() . '_datafile.json';
-        File::put(public_path('upload/json/'.$fileName),$data);
-      return $data;
-      */
-        
+
+        $order = new Orders();
+        $order->business_id = $request->business;
+        $order->table_nr = $request->table;
+        $order->customer_nr = $request->customer;
+        $order->device = $request->device;
+        $order->comment = $request->comment;
+
+        $order->save();
+
+        $insertedid = $order->id;
+
+        $products = $request->products;
+
+        foreach ($products as $product => $val) {
+            $history = new OrdersHistory();
+            $history->order_id = $insertedid;
+            $history->product_name = $val['product'];
+            $history->price = $val['price'];
+            $history->ingredients = $val['ingredients'];
+            $history->save();
+        }
+
+        return 'true';        
+    }
+
+    public function unseen($id) {
+
+       $orders = DB::table('orders')
+        ->join('order_history', function ($join) use($id) {
+            $join->on('orders.id', '=', 'order_history.order_id')
+                 ->where('orders.business_id', '=', $id)
+                 ->where('orders.seen', '=', false);
+
+        })
+        ->select('order_history.*','orders.table_nr','orders.comment')->get();
+
+        return $orders;
     }
 
     public function getBill(Request $request) {

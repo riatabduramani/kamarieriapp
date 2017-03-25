@@ -50,7 +50,7 @@
                       <ul class="nav navbar-nav">            
                         <li {{{ (Request::is('/client') ? 'class=active' : '') }}} ><a href="/client">Dashboard <span class="sr-only">(current)</span></a></li>
                         <li {{{ (Request::is('client/menu*') ? 'class=active' : '') }}}><a href="/client/menu">Menu</a></li>
-                        <li><a href="#">History</a></li>
+                        <li {{{ (Request::is('client/history*') ? 'class=active' : '') }}}><a href="/client/history">History</a></li>
                         <li {{{ (Request::is('client/profile') ? 'class=active' : '') }}}><a href="/client/profile">My Profile</a></li>
                       </ul>
                     @endrole
