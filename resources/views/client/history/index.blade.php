@@ -15,7 +15,7 @@
                       <th>Order Nr.</th>
                       <th>Table Nr.</th>
                       <th>Customer Nr.</th>
-                      <th>Total sum</th>
+                      <th>Seen/Unseen</th>
                       <th>Date/Time</th>
                       <th>Action</th>
                     </tr>
@@ -26,7 +26,7 @@
                           <td>{{ $his->id }}</td>
                           <td>{{ $his->table_nr }}</td>
                           <td>{{ $his->customer_nr }}</td>
-                          <td></td>
+                          <td>{!! $his->seenUnseen($his) !!}</td>
                           <td>{{ $his->created_at }}</td>
                           <td><a href="/client/history/{{ $his->id }}" class="btn btn-primary btn-xs">View Order</a></td>
                         </tr>

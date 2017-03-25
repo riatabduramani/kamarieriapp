@@ -33,4 +33,18 @@ trait HasModelTrait
         }
     }
 
+    public function seenUnseen($record)
+    {
+        switch ($record) {
+            case $record->seen == 1:
+                return '<label class="label label-success" aria-hidden="true">seen</label>';
+                break;
+            case $record->seen == 0:
+                return '<label class="label label-warning" aria-hidden="true">unseen</label>';
+                break;
+            default:
+                return '<label class="label label-warning" aria-hidden="true">pending</label>';
+        }
+    }
+
 }

@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\HasModelTrait;
 
 class Orders extends Model
 {
+    use HasModelTrait;
     /**
      * The database table used by the model.
      *
