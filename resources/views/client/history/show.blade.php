@@ -14,7 +14,7 @@
                   <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Order nr: {{ $orders->id }}<br />
                   <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Customer nr: {{ $orders->customer_nr }}<br />
                   <span class="glyphicon glyphicon-record" aria-hidden="true"></span> Table nr: {{ $orders->table_nr }}<br />
-                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Date: {{ $orders->created_at }}<br />
+                  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Date: {{ $orders->created_at->format('d.m.y - H:i') }}<br />
                   <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Comment: {{ $orders->comment }}
                 </div>
                 <div class="col-md-5">

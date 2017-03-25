@@ -30,7 +30,7 @@
                 @for($x = 1; $x <= Auth::user()->business->nr_tables; $x++ )
                     <div style="float: left;">
                         #{{ $x }}<br />
-                        {!! QrCode::size(220)->generate($x) !!}
+                        {!! QrCode::size(220)->generate(Auth::user()->id.'-'.$x) !!}
                         <br /><br />
                     </div>
                 @endfor 
