@@ -123,6 +123,15 @@ class RestfulController extends Controller
         return $orders;
     }
 
+    public function seen($id) {
+        
+        $orders = DB::table('orders')
+            ->where('id', $id)
+            ->update(['seen' => 1]);
+
+        return $orders;
+    }
+
     public function getBill(Request $request) {
         $data = json_encode($request->all());
         return $data;
