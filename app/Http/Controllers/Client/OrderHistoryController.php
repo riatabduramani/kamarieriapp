@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Auth;
 use User;
 use Gate;
-use App\OrderHistory;
 use DB;
 use Illuminate\Http\Request;
 use Session;
+
+use App\Orders;
+use App\OrdersHistory;
 
 class OrderHistoryController extends Controller
 {
@@ -28,27 +30,25 @@ class OrderHistoryController extends Controller
      */
     public function index()
     {
-
-        $history = OrderHistory::select('customer_nr','order_nr', 'client_id', 'table_nr', 'created_at')->distinct()->get();
-        //$sum = OrderHistory::select('customer_nr','order_nr', 'client_id', 'table_nr', 'created_at')->distinct()->sum('price');
-
-        $sum = $history->sum(function($histori) {
-            return $histori->price;
-        });
-
-        //$sum = DB::table('order_history')->where('order_nr', array($history->order_nr))->sum('price');
-        
+        $user_id = Auth::user()->id;
+        $history = Orders::where('business_id', $user_id)->paginate(25);
         return view('client.history.index', compact('history','sum'));
     }
 
     public function show($id) {
 
-        $history = DB::table('order_history')->where('order_nr', $id)->get();
-        $sum = DB::table('order_history')->where('order_nr', $id)->sum('price');
+        $orders = Orders::findOrFail($id);
 
-        $historydata = OrderHistory::select('customer_nr','order_nr', 'client_id', 'table_nr', 'created_at')->distinct()->where('order_nr', $id)->get();
+        $history = DB::table('orders')
+        ->join('order_history', function ($join) use($id) {
+            $join->on('orders.id', '=', 'order_history.order_id')
+                 ->where('order_history.order_id', '=', $id);
 
-        return view('client.history.show', compact('history','sum', 'historydata'));
+        })->select('order_history.*')->get();
+
+        $sum = DB::table('order_history')->where('order_id',$id)->sum('price');
+
+        return view('client.history.show', compact('orders','history','sum'));
     }
 
 }

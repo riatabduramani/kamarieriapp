@@ -124,12 +124,16 @@ class RestfulController extends Controller
     }
 
     public function seen($id) {
+        $ids = explode(",", $id);
         
-        $orders = DB::table('orders')
-            ->where('id', $id)
+        foreach ($ids as $key => $value) {
+            $orders = DB::table('orders')
+            ->where('id', $value)
             ->update(['seen' => 1]);
-
-        return $orders;
+        }
+        
+        
+        return 'true';
     }
 
     public function getBill(Request $request) {

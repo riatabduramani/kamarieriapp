@@ -12,8 +12,8 @@
                   <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>Table Nr.</th>
                       <th>Order Nr.</th>
+                      <th>Table Nr.</th>
                       <th>Customer Nr.</th>
                       <th>Total sum</th>
                       <th>Date/Time</th>
@@ -22,13 +22,13 @@
                   </thead>
                   <tbody>
                       @foreach($history as $his)
-                        <tr>
+                        <tr> 
+                          <td>{{ $his->id }}</td>
                           <td>{{ $his->table_nr }}</td>
-                          <td>{{ $his->order_nr }}</td>
                           <td>{{ $his->customer_nr }}</td>
-                          <td>{{ $sum }}</td>
+                          <td></td>
                           <td>{{ $his->created_at }}</td>
-                          <td><a href="/client/history/{{ $his->order_nr }}" class="btn btn-primary btn-xs">View Order</a></td>
+                          <td><a href="/client/history/{{ $his->id }}" class="btn btn-primary btn-xs">View Order</a></td>
                         </tr>
                       @endforeach
                   </tbody>
