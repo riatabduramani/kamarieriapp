@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1', function ($api) {
+$api->version('v1', ['middleware' => 'api.auth'],  function ($api) {
 
 	    /* Business ->get business using QRCode */
 	    /* http://api.myapp.dev/business/{id} */
