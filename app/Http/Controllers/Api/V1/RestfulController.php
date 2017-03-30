@@ -14,6 +14,8 @@ use App\Orders;
 use App\OrdersHistory;
 use App\Ingredient;
 use App\Product;
+use Davibennun\LaravelPushNotification\Facades\PushNotification;
+
 
 
 class RestfulController extends Controller
@@ -87,7 +89,8 @@ class RestfulController extends Controller
         $order = new Orders();
         $order->business_id = $request->business;
         $order->table_nr = $request->table;
-        $order->customer_nr = $request->customer;
+        //$order->customer_nr = $request->customer;
+        $order->token = $request->token;
         $order->device = $request->device;
         $order->comment = $request->comment;
 
@@ -127,13 +130,17 @@ class RestfulController extends Controller
         $ids = explode(",", $id);
         
         foreach ($ids as $key => $value) {
-            $orders = DB::table('orders')
-            ->where('id', $value)
+            $orders = Orders::find($value)
             ->update(['seen' => 1]);
+
+            $deviceToken = Orders::find($value);
+            $return = PushNotification::app($deviceToken->device)
+              ->to($deviceToken->token)
+              ->send("Your order #$value has been seen.");
         }
-        
-        
+
         return 'true';
+        
     }
 
     public function getBill(Request $request) {

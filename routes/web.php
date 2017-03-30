@@ -50,6 +50,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:super-admin']],
 	Route::resource('/roles','Admin\\RoleController');
 });
 
+Route::resource('/notify','NotificationTest');
+
 /*
 Route::group(['middleware' => ['auth', 'role:super-admin']], function() {
 

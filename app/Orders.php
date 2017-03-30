@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasModelTrait;
+use DB;
 
 class Orders extends Model
 {
@@ -30,8 +31,9 @@ class Orders extends Model
     protected $fillable = [
     	'business_id',
 		'table_nr',
-		'customer_nr',
+		'token',
 		'device',
+        'created_at',
 		'seen'
 	];
 
@@ -39,4 +41,11 @@ class Orders extends Model
     {
         return $this->belongsTo('App\OrdersHistory');
     }
+
+    public function sumCount()
+    {
+        //We use "hasOne" instead of "hasMany" because we only want to return one row.
+        return $this->hasOne('App\OrdersHistory','order_id')->select(DB::raw('order_id, sum(price) as total'))->groupBy('order_id');
+    }
+
 }

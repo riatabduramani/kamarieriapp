@@ -31,8 +31,9 @@ class OrderHistoryController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $history = Orders::where('business_id', $user_id)->paginate(25);
-        return view('client.history.index', compact('history','sum'));
+        $history = Orders::with('sumCount')->where('business_id', $user_id)->paginate(25);
+
+        return view('client.history.index', compact('history'));
     }
 
     public function show($id) {

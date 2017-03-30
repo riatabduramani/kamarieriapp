@@ -169,6 +169,7 @@ return [
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -239,6 +240,8 @@ return [
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        'PushNotification' => Davibennun\LaravelPushNotification\Facades\PushNotification::class,
+
 
 
     ],

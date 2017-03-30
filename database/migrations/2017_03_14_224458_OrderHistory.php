@@ -17,7 +17,8 @@ class OrderHistory extends Migration
             $table->increments('id')->unsigned();
             $table->integer('business_id');
             $table->integer('table_nr');
-            $table->integer('customer_nr');
+            //$table->integer('customer_nr');
+            $table->string('token');
             $table->string('device');
             $table->text('comment');
             $table->boolean('seen')->default(0);

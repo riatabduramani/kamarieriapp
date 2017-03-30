@@ -17,7 +17,8 @@
         "laravelcollective/html": "^5.3.0",
         "simplesoftwareio/simple-qrcode": "1.5.1",
         "uxweb/sweet-alert": "~1.4",
-        "phpoffice/phpexcel": "dev-master"
+        "phpoffice/phpexcel": "dev-master",
+        "davibennun/laravel-push-notification": "dev-laravel5"
 
     },
     "require-dev": {

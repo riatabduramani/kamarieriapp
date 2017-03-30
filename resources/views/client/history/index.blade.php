@@ -14,8 +14,9 @@
                     <tr>
                       <th>Order Nr.</th>
                       <th>Table Nr.</th>
-                      <th>Customer Nr.</th>
+                      <th>Customer</th>
                       <th>Seen/Unseen</th>
+                      <th>Sum</th>
                       <th>Date/Time</th>
                       <th>Action</th>
                     </tr>
@@ -25,14 +26,16 @@
                         <tr> 
                           <td>{{ $his->id }}</td>
                           <td>{{ $his->table_nr }}</td>
-                          <td>{{ $his->customer_nr }}</td>
+                          <td>{{ $his->token }}</td>
                           <td>{!! $his->seenUnseen($his) !!}</td>
+                          <td>{{ $his->sumCount->total }}</td>
                           <td>{{ $his->created_at }}</td>
                           <td><a href="/client/history/{{ $his->id }}" class="btn btn-primary btn-xs">View Order</a></td>
                         </tr>
                       @endforeach
                   </tbody>
                   </table>
+                  {!! $history->links() !!}
                 </div>
             </div>
         </div>

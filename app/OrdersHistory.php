@@ -35,6 +35,7 @@ class OrdersHistory extends Model
 
     public function orders()
     {
-        return $this->hasMany('App\Orders');
+        return $this->hasMany('App\Orders', 'id', 'order_id');
     }
+
 }

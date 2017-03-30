@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use PDF;
 use Auth;
+use Carbon;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PdfController extends Controller
 		
 	$pdf = PDF::loadView('client.printqr')->setPaper('a4')->setOrientation('portrait');
 
-	return $pdf->download(Auth::user()->business->name."-QRCodes.pdf");
+	return $pdf->download(Auth::user()->business->name."-QRCodes-".Carbon\Carbon::now()->format('d-m-y').".pdf");
 
    	} catch (Exception $e) {
    		abort(500);	
