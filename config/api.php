@@ -218,5 +218,8 @@ return [
         'json' => Dingo\Api\Http\Response\Format\Json::class,
 
     ],
+    'auth' => [
+            'basic' => 'Dingo\Api\Auth\Provider\Basic'
+            ],
 
 ];

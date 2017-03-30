@@ -16,8 +16,6 @@ use App\Ingredient;
 use App\Product;
 use Davibennun\LaravelPushNotification\Facades\PushNotification;
 
-
-
 class RestfulController extends Controller
 {
 
