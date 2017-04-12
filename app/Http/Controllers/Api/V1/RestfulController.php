@@ -14,6 +14,7 @@ use App\Orders;
 use App\OrdersHistory;
 use App\Ingredient;
 use App\Product;
+use App\AppUsers;
 use Davibennun\LaravelPushNotification\Facades\PushNotification;
 
 class RestfulController extends Controller
@@ -87,7 +88,7 @@ class RestfulController extends Controller
         $order = new Orders();
         $order->business_id = $request->business;
         $order->table_nr = $request->table;
-        //$order->customer_nr = $request->customer;
+        $order->customer_nr = $request->customer;
         $order->token = $request->token;
         $order->device = $request->device;
         $order->comment = $request->comment;
@@ -139,6 +140,24 @@ class RestfulController extends Controller
 
         return 'true';
         
+    }
+
+    public function registerAppUsers(Request $request) {
+        
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'device' => 'required'
+        ]);
+        
+        $appuser = new AppUsers();
+        $appuser->name = $request->name;
+        $appuser->email = $request->email;
+        $appuser->device = $request->device;
+        $appuser->save();
+
+        return 'true';
+
     }
 
     public function getBill(Request $request) {

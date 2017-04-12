@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 $api = app('Dingo\Api\Routing\Router');
 
+//Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+
 $api->version('v1', ['middleware' => 'api.auth'],  function ($api) {
 
 	    /* Business ->get business using QRCode */
@@ -38,6 +40,8 @@ $api->version('v1', ['middleware' => 'api.auth'],  function ($api) {
 	    $api->get('ingredients/{id}', 'App\Http\Controllers\Api\V1\RestfulController@ingredient');
 
 	    $api->post('/receiveorders', 'App\Http\Controllers\Api\V1\RestfulController@receiveOrders');
+
+	    $api->post('/appusers', 'App\Http\Controllers\Api\V1\RestfulController@registerAppUsers');
 
 	    $api->post('/requestbill', 'App\Http\Controllers\Api\V1\RestfulController@getBill');
 	    
