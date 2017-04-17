@@ -88,7 +88,7 @@ class RestfulController extends Controller
         $order = new Orders();
         $order->business_id = $request->business;
         $order->table_nr = $request->table;
-        $order->customer_nr = $request->customer;
+        //$order->customer_nr = $request->customer;
         $order->token = $request->token;
         $order->device = $request->device;
         $order->comment = $request->comment;
@@ -119,8 +119,7 @@ class RestfulController extends Controller
                  ->where('orders.business_id', '=', $id)
                  ->where('orders.seen', '=', false);
 
-        })
-        ->select('order_history.*','orders.table_nr','orders.comment')->get();
+        })->select('order_history.*','orders.table_nr','orders.comment')->get();
 
         return $orders;
     }
