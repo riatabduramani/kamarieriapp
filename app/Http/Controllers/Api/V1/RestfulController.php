@@ -88,24 +88,26 @@ class RestfulController extends Controller
         $order = new Orders();
         $order->business_id = $request->business;
         $order->table_nr = $request->table;
-        //$order->customer_nr = $request->customer;
+        $order->type = $request->type;
         $order->token = $request->token;
         $order->device = $request->device;
         $order->comment = $request->comment;
 
         $order->save();
 
-        $insertedid = $order->id;
+        if($request->type == 1) {
+            $insertedid = $order->id;
 
-        $products = $request->products;
+            $products = $request->products;
 
-        foreach ($products as $product => $val) {
-            $history = new OrdersHistory();
-            $history->order_id = $insertedid;
-            $history->product_name = $val['product'];
-            $history->price = $val['price'];
-            $history->ingredients = $val['ingredients'];
-            $history->save();
+            foreach ($products as $product => $val) {
+                $history = new OrdersHistory();
+                $history->order_id = $insertedid;
+                $history->product_name = $val['product'];
+                $history->price = $val['price'];
+                $history->ingredients = $val['ingredients'];
+                $history->save();
+            }
         }
 
         return 'true';        
@@ -119,7 +121,7 @@ class RestfulController extends Controller
                  ->where('orders.business_id', '=', $id)
                  ->where('orders.seen', '=', false);
 
-        })->select('order_history.*','orders.table_nr','orders.comment')->get();
+        })->select('order_history.*','orders.table_nr','orders.type','orders.comment')->get();
 
         return $orders;
     }
