@@ -126,7 +126,7 @@ angular.module('myApp', [ 'ngResource' ])
 				//setTimeout(notification.close(), 2000000);
 				notification.onclick = function () {
 					//$scope.process(arr);
-					window.open("kamarieriViewOrderAJS.html","","width=650, height=450"); 					
+					window.open("/shank/open","","width=650, height=450"); 					
 				};
 
 		  }

@@ -36,14 +36,14 @@
 
 <div class="col-lg-7 removePadd removeMarg" style="border:1px ;padding-left:0px;padding-right:0px;margin-left:-9px;margin-top:21px;">
 
-    <div class="row panel panel-default"  style="margin-left:0px;margin-right:0px;"  ng-repeat="val in keysOfMap" id="{{val}}">
+    <div class="row panel panel-default"  style="margin-left:0px;margin-right:0px;"  ng-repeat="val in keysOfMap" id="@{{val}}">
 		<div class="panel-heading col-xs-12 col-sm-12 col-md-12 col-lg-12" style="color: #2aabd2;border:1px ;padding-left:8px;padding-right:0px;">
-			<b><label class="fa fa-table"></label>&nbsp; Table {{val}}</b><button style="margin-right:5px;" class="btn btn-info w3-right" ng-click="btnklik(val)">Seen</button>
+			<b><label class="fa fa-table"></label>&nbsp; Table @{{val}}</b><button style="margin-right:5px;" class="btn btn-info w3-right" ng-click="btnklik(val)">Seen</button>
 		</div>
 		<span ng-repeat="obj in mapa[val]">
 		
 		<div class="panel-heading col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:3px;border:1px ;padding-left:8px;padding-right:0px;">
-			<b>{{obj.product_name}}</b> <label ng-repeat="item in obj.ingredients.split(',')" style="margin-left: 3px;" class="label label-warning">{{item}}</label>
+			<b>@{{ obj.product_name }}</b> <label ng-repeat="item in obj.ingredients.split(',')" style="margin-left: 3px;" class="label label-warning">@{{item}}></label>
 		</div>
 		
 	  </span>

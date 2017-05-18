@@ -19,6 +19,10 @@ Route::get('/shank', function () {
     return view('shank.kamarieriAngularJS');
 });
 
+Route::get('/shank/open', function () {
+    return view('shank.kamarieriViewOrderAJS');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
