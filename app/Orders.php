@@ -31,6 +31,7 @@ class Orders extends Model
     protected $fillable = [
     	'business_id',
 		'table_nr',
+        'type',
 		'token',
 		'device',
         'created_at',

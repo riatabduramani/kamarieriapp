@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/shank', function () {
+    return view('shank.kamarieriAngularJS');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

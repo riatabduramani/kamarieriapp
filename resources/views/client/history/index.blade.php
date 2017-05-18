@@ -13,6 +13,7 @@
                   <thead>
                     <tr>
                       <th>Order Nr.</th>
+                      <th>Order Type</th>
                       <th>Table Nr.</th>
                       <th>Customer</th>
                       <th>Seen/Unseen</th>
@@ -25,6 +26,7 @@
                       @foreach($history as $his)
                         <tr> 
                           <td>{{ $his->id }}</td>
+                          <td>{{ $his->type }}</td>
                           <td>{{ $his->table_nr }}</td>
                           <td>{{ $his->token }}</td>
                           <td>{!! $his->seenUnseen($his) !!}</td>
