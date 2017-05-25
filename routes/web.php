@@ -30,6 +30,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 	    return view('shank.kamarieriViewOrderAJS');
 	});
 
+	Route::get('/shank', function () {
+    	return view('shank.kamarieriAngularJS');
+	});
+
 Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], function() {
 	
     Route::get('/', function () {
@@ -46,9 +50,7 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], fu
 	Route::resource('/business', 'Client\\BusinessController');
 	Route::resource('/history', 'Client\\OrderHistoryController');
 
-	Route::get('/shank', function () {
-    	return view('shank.kamarieriAngularJS');
-	});
+
 	//Route::resource('/shank', 'Client\\ShankController');
 	
 });
