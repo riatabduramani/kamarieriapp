@@ -31,14 +31,15 @@ angular.module('myApp', [ 'ngResource' ])
 		img.src = canvas.toDataURL("image/png");
 	};
 	
-	window.onload = function() {			
+	window.onload = function() {	
+	var clientid = $("#clientid").val();		
 	
 			setInterval(function() {	
 			
 				var settings = {
 				  "async": true,
 				  "crossDomain": true,
-				  "url": "http://api.kamarieri.com/unseen/2",
+				  "url": "http://api.kamarieri.com/unseen/"+clientid,
 				  "method": "GET",
 				  "headers": {
 					"authorization": "Basic c3V1YWQtQGxpdmUuY29tOjEyMzQ1Njc4",
@@ -126,7 +127,7 @@ angular.module('myApp', [ 'ngResource' ])
 				//setTimeout(notification.close(), 2000000);
 				notification.onclick = function () {
 					//$scope.process(arr);
-					window.open("/shank/open","","width=650, height=450"); 					
+					window.open("/client/shank/open","","width=650, height=450"); 					
 				};
 
 		  }

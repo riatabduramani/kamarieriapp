@@ -15,14 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/shank', function () {
-    return view('shank.kamarieriAngularJS');
-});
-
-Route::get('/shank/open', function () {
-    return view('shank.kamarieriViewOrderAJS');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -50,6 +42,14 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], fu
 	Route::resource('/profile', 'Client\\ProfileController');
 	Route::resource('/business', 'Client\\BusinessController');
 	Route::resource('/history', 'Client\\OrderHistoryController');
+
+	Route::get('/shank', function () {
+    	return view('shank.kamarieriAngularJS');
+	});
+
+	Route::get('/shank/open', function () {
+	    return view('shank.kamarieriViewOrderAJS');
+	});
 	
 });
 

@@ -17,6 +17,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
   <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-resource.js"></script>
+
   <script type="text/javascript" src="/js/shank/app.js"></script>
 <style>
 .removePadd{
@@ -32,6 +33,8 @@
 </head>
 <body ng-controller="kamarieri" style="background:#f5f8fa;">
 
+ <input type="hidden" id="clienid" value="{{ Auth::id() }}" />
+ 
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card-2">
    

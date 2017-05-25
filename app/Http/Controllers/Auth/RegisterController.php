@@ -74,6 +74,7 @@ class RegisterController extends Controller
         'email' => $data['email'],
         'password' => bcrypt($data['password']),
         ]);
+        
         $user->business()->save(new Business ([
                 'name' => $data['businessname'],
                 'address' => $data['address'],

@@ -31,6 +31,7 @@
 </style>
 </head>
 <body ng-controller="kamarieriTwo" style="background:#f5f8fa;">
+<input type="hidden" id="clienid" value="{{ Auth::id() }}" />
 
 <div id="main" class="container">
 
