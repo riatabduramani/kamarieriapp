@@ -43,9 +43,7 @@ Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], fu
 	Route::resource('/business', 'Client\\BusinessController');
 	Route::resource('/history', 'Client\\OrderHistoryController');
 
-	Route::get('/shank', function () {
-    	return view('shank.kamarieriAngularJS');
-	});
+	Route::resource('/shank', 'Client\\ShankController');
 
 	Route::get('/shank/open', function () {
 	    return view('shank.kamarieriViewOrderAJS');

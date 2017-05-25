@@ -39,7 +39,7 @@ angular.module('myApp', [ 'ngResource' ])
 				var settings = {
 				  "async": true,
 				  "crossDomain": true,
-				  "url": "http://api.kamarieri.com/unseen/"+clientid,
+				  "url": "http://api.kamarieri.com/unseen/2",
 				  "method": "GET",
 				  "headers": {
 					"authorization": "Basic c3V1YWQtQGxpdmUuY29tOjEyMzQ1Njc4",
