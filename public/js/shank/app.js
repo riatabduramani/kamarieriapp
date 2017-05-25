@@ -31,8 +31,7 @@ angular.module('myApp', [ 'ngResource' ])
 		img.src = canvas.toDataURL("image/png");
 	};
 	
-	window.onload = function() {	
-	var clientid = $("#clientid").val();		
+	window.onload = function() {		
 	
 			setInterval(function() {	
 			
@@ -162,7 +161,6 @@ angular.module('myApp', [ 'ngResource' ])
 	$scope.orderByTable = {};
 	
 	window.onload = function() {	
-
 	
 		var settings = {
 		  "async": true,
