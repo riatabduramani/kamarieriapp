@@ -33,12 +33,13 @@ angular.module('myApp', [ 'ngResource' ])
 	
 	window.onload = function() {		
 	
-			setInterval(function() {	
+			setInterval(function() {
+			var clientid=document.getElementById("clientid").value;  	
 			
 				var settings = {
 				  "async": true,
 				  "crossDomain": true,
-				  "url": "http://api.kamarieri.com/unseen/2",
+				  "url": "http://api.kamarieri.com/unseen/"+clientid,
 				  "method": "GET",
 				  "headers": {
 					"authorization": "Basic c3V1YWQtQGxpdmUuY29tOjEyMzQ1Njc4",
@@ -161,11 +162,11 @@ angular.module('myApp', [ 'ngResource' ])
 	$scope.orderByTable = {};
 	
 	window.onload = function() {	
-	
+		var clientid=document.getElementById("clientid").value; 
 		var settings = {
 		  "async": true,
 		  "crossDomain": true,
-		  "url": "http://api.kamarieri.com/unseen/2",
+		  "url": "http://api.kamarieri.com/unseen/"+clientid,
 		  "method": "GET",
 		  "headers": {
 			"authorization": "Basic c3V1YWQtQGxpdmUuY29tOjEyMzQ1Njc4",

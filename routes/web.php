@@ -26,13 +26,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 		});
 });
 
+Route::group(['middleware' => 'auth'], function() {
+
 	Route::get('/shank/open', function () {
-	    return view('shank.kamarieriViewOrderAJS');
+    	return view('shank.kamarieriViewOrderAJS');
 	});
 
 	Route::get('/shank', function () {
-    	return view('shank.kamarieriAngularJS');
+		return view('shank.kamarieriAngularJS');
 	});
+  
+});
+
+
 
 Route::group(['prefix' => 'client', 'middleware' => ['auth', 'role:client']], function() {
 	

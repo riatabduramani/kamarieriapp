@@ -33,7 +33,7 @@
 </head>
 <body ng-controller="kamarieri" style="background:#f5f8fa;">
 
- <input type="hidden" id="clienid" value="{{ Auth::id() }}" />
+ <input type="hidden" id="clientid" name='clientid' value="{{ Auth::id() }}" />
  
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card-2">
