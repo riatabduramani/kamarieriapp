@@ -171,4 +171,21 @@ class RestfulController extends Controller
         return $data;
     }
 
+    public function seenCalls($id) {
+        $ids = explode(",", $id);
+        
+        foreach ($ids as $key => $value) {
+            $orders = Orders::find($value)
+            ->update(['seen' => 1]);
+
+            $deviceToken = Orders::find($value);
+            $return = PushNotification::app($deviceToken->device)
+              ->to($deviceToken->token)
+              ->send("Your call has been seen.");
+        }
+
+        return 'true';
+        
+    }
+
 }
