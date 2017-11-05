@@ -168,8 +168,9 @@ return [
         Barryvdh\Snappy\ServiceProvider::class,
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
-        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
         Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider::class,
+        PragmaRX\Countries\ServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -239,8 +240,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
-        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'PushNotification' => Davibennun\LaravelPushNotification\Facades\PushNotification::class,
+        'Countries'=> PragmaRX\Countries\Facade::class,
 
     ],
 

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use Auth;
 use Session;
-use Alert;
 use Illuminate\Http\Request;
 use PDF;
 

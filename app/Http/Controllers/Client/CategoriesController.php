@@ -11,7 +11,6 @@ use Auth;
 use Gate;
 use Illuminate\Http\Request;
 use Session;
-use Alert;
 
 
 class CategoriesController extends Controller

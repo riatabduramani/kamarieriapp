@@ -8,6 +8,7 @@
         "php": ">=5.6.4",
         "barryvdh/laravel-snappy": "^0.3.2",
         "bestmomo/laravel-email-confirmation": "^1.0",
+        "davibennun/laravel-push-notification": "dev-laravel5",
         "dingo/api": "1.0.*@dev",
         "dompdf/dompdf": "^0.7.0",
         "h4cc/wkhtmltoimage-amd64": "0.12.x",
@@ -15,11 +16,8 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.3.0",
-        "simplesoftwareio/simple-qrcode": "1.5.1",
-        "uxweb/sweet-alert": "~1.4",
         "phpoffice/phpexcel": "dev-master",
-        "davibennun/laravel-push-notification": "dev-laravel5"
-
+        "simplesoftwareio/simple-qrcode": "1.5.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

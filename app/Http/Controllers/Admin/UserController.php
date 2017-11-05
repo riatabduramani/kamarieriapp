@@ -10,7 +10,6 @@ use App\Business;
 use App\Country;
 use DB;
 use Hash;
-use Alert;
 use Redirect;
 
 class UserController extends Controller

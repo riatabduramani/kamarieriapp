@@ -13,7 +13,6 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/sweetalert.css">
 
     <!-- Scripts -->
     <script>
@@ -100,10 +99,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script> 
-    <script src="js/sweetalert.min.js"></script>
-
-    <!-- Include this after the sweet alert js file -->
-    @include('sweet::alert')
+    
 
 </body>
 </html>

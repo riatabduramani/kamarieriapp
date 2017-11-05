@@ -12,7 +12,7 @@ use App\Business;
 use App\Country;
 use Illuminate\Http\Request;
 use Session;
-use Alert;
+
 
 class ProfileController extends Controller
 {
@@ -23,8 +23,9 @@ class ProfileController extends Controller
 
         $countryList = Country::pluck('name', 'id')->all();
         $selected = $user->business->country_id;
+        $currency = Countries::all()->pluck('name.common');
 
-        return view('client.profile.show', compact('user', 'countryList', 'selected'));
+        return view('client.profile.show', compact('user', 'countryList', 'selected', 'currency'));
     }
 
 
