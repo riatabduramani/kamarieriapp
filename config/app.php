@@ -242,8 +242,6 @@ return [
         'Alert' => UxWeb\SweetAlert\SweetAlert::class,
         'PushNotification' => Davibennun\LaravelPushNotification\Facades\PushNotification::class,
 
-
-
     ],
 
 ];
