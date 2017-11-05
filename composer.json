@@ -17,7 +17,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.3.0",
         "phpoffice/phpexcel": "dev-master",
-        "simplesoftwareio/simple-qrcode": "1.5.1"
+        "simplesoftwareio/simple-qrcode": "1.5.1",
+        "webpatser/laravel-countries": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

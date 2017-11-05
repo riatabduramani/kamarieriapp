@@ -169,7 +169,7 @@ return [
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
         Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider::class,
-        PragmaRX\Countries\ServiceProvider::class,
+        'Webpatser\Countries\CountriesServiceProvider',
 
 
         /*
@@ -241,7 +241,7 @@ return [
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
         'PushNotification' => Davibennun\LaravelPushNotification\Facades\PushNotification::class,
-        'Countries'=> PragmaRX\Countries\Facade::class,
+        'Countries' => 'Webpatser\Countries\CountriesFacade',
 
     ],
 
