@@ -23,7 +23,7 @@ $api = app('Dingo\Api\Routing\Router');
 //Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
 
 $api->version('v1', ['middleware' => 'api.auth'],  function ($api) {
-
+//$api->version('v1', function ($api) {
 	    /* Business ->get business using QRCode */
 	    /* http://api.myapp.dev/business/{id} */
 	    $api->get('business/{id}', 'App\Http\Controllers\Api\V1\RestfulController@show');

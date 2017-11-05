@@ -30,7 +30,7 @@
                           <td>{{ $his->table_nr }}</td>
                           <td>{{ $his->token }}</td>
                           <td>{!! $his->seenUnseen($his) !!}</td>
-                          <td>{{ $his->sumCount->total }}</td>
+                          <td></td>
                           <td>{{ $his->created_at }}</td>
                           <td><a href="/client/history/{{ $his->id }}" class="btn btn-primary btn-xs">View Order</a></td>
                         </tr>
