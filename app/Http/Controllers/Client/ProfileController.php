@@ -10,6 +10,7 @@ use Auth;
 use App\User;
 use App\Business;
 use App\Country;
+use App\Currency;
 use Illuminate\Http\Request;
 use Session;
 
@@ -23,7 +24,7 @@ class ProfileController extends Controller
 
         $countryList = Country::pluck('name', 'id')->all();
         $selected = $user->business->country_id;
-        $currency = Countries::all()->pluck('name.common');
+        $currency = Currency::all();
 
         return view('client.profile.show', compact('user', 'countryList', 'selected', 'currency'));
     }

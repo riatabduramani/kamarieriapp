@@ -15,6 +15,7 @@ use App\OrdersHistory;
 use App\Ingredient;
 use App\Product;
 use App\AppUsers;
+use App\Currency;
 use Davibennun\LaravelPushNotification\Facades\PushNotification;
 
 class RestfulController extends Controller
@@ -33,6 +34,8 @@ class RestfulController extends Controller
                             WHERE categories.id = products.category_id AND categories.user_id = $id;"));
                             */
         //return $menu;
+        $business = Business::findOrFail($id);
+       
 
         $tableIds = DB::select( DB::raw("SELECT name, id FROM categories WHERE user_id = $id"));
         $jsonResult = array();
@@ -46,10 +49,11 @@ class RestfulController extends Controller
         }
 
         return Response::json(array(
-                    'menu'    =>  $jsonResult),
+                    'business'=>   $business,
+                    'menu'    =>  $jsonResult
+                ),
                     200
             );
-        
         
         //return $category;
         /*
@@ -186,6 +190,50 @@ class RestfulController extends Controller
 
         return 'true';
         
+    }
+
+    public function storeCurrencies(Request $request) {
+
+        //example of json currency
+        /*
+        {
+            "USD": {
+                "symbol": "$",
+                "name": "US Dollar",
+                "symbol_native": "$",
+                "decimal_digits": 2,
+                "rounding": 0,
+                "code": "USD",
+                "name_plural": "US dollars"
+            },
+            "CAD": {
+                "symbol": "CA$",
+                "name": "Canadian Dollar",
+                "symbol_native": "$",
+                "decimal_digits": 2,
+                "rounding": 0,
+                "code": "CAD",
+                "name_plural": "Canadian dollars"
+            }
+        }
+
+        */
+        //Gets the keys of json, first key
+        $data = array_keys($request->all());
+
+        $datreq = $request->all();
+
+        for ($i=0; $i < count($data); $i++) { 
+            $getid = $data[$i];
+
+            $add = new Currency();
+            foreach ($datreq[$getid] as $key => $value) {
+                $add->$key = $value;
+            }
+            $add->save();
+            
+        }
+ 
     }
 
 }

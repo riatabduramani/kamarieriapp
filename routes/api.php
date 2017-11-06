@@ -51,5 +51,7 @@ $api->version('v1', ['middleware' => 'api.auth'],  function ($api) {
 	    $api->post('/seen/{id}', 'App\Http\Controllers\Api\V1\RestfulController@seen');
 	    $api->post('/seencalls/{id}', 'App\Http\Controllers\Api\V1\RestfulController@seenCalls');
 
+	    $api->post('/storecurrencies', 'App\Http\Controllers\Api\V1\RestfulController@storeCurrencies');
+
 });
 

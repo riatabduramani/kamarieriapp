@@ -70,12 +70,14 @@
 <div class="form-group {{ $errors->has('currency') ? 'has-error' : ''}}">
     {!! Form::label('currency', 'Currency', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('currency', $user->business->currency, ['class' => 'form-control']) !!}
+        <select name="currency" id="currency" class="form-control">
+            @foreach($currency as $curr)
+                <option value="{{$curr->symbol_native}}" @if($user->business->currency == $curr->symbol_native) selected @endif>{{ $curr->name }} ({{ $curr->symbol_native}})</option>
+            @endforeach
+        </select>
         {!! $errors->first('currency', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
-
-
 
 <div class="form-group">
     <div class="col-md-offset-4 col-md-4">
